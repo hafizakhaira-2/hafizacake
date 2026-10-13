@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> <link rel="stylesheet" href="https://silverhawk.web.id/lock/lock.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafiza Bakery — Manis, Hangat, Istimewa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body> <body data-shlock-mode="ultimate" data-shlock-domain="" data-shlock-brand="hafizacake" data-shlock-social="https://www.dailymotion.com/video/xatk8ky,https://www.instagram.com/hfzaa_ra/,https://www.tiktok.com/@tiiin_tiiinn_mobi">
+  <header class="navbar">
+    <a class="logo" href="#home"><span>H</span> Hafiza Bakery</a>
+    <nav>
+      <a href="#home" data-id="navHome">Beranda</a>
+      <a href="#cakes" data-id="navCakes">Kue</a>
+      <a href="#about" data-id="navAbout">Tentang</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Cari kue..." aria-label="Cari kue">
+        <span>⌕</span>
+      </div>
+      <select id="language" aria-label="Pilih bahasa">
+        <option value="id">ID</option>
+        <option value="en">EN</option>
+      </select>
+      <button class="cart-btn" id="cartButton" aria-label="Buka keranjang">
+        🛒 <b id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-id="eyebrow">Dibuat dengan cinta • Dipanggang setiap hari</p>
+        <h1 data-id="heroTitle">Manisnya bikin<br><em>jatuh hati.</em></h1>
+        <p class="hero-text" data-id="heroText">
+          Kue lembut, rasa hangat, dan momen kecil yang terasa lebih spesial.
+          Temukan favoritmu di Hafiza Bakery.
+        </p>
+        <a class="primary-btn" href="#cakes" data-id="heroButton">Lihat Menu <span>→</span></a>
+        <div class="mini-note"><span>★</span> <strong>Fresh every day</strong> — dibuat dari bahan pilihan.</div>
+      </div>
+      <div class="hero-art">
+        <div class="blob"></div>
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85" alt="Kue cokelat">
+        <div class="floating-card"><span>♡</span><div><strong>Homemade</strong><small>Rasa yang bikin rindu</small></div></div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="cakes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-id="menuEyebrow">Menu pilihan</p>
+          <h2 data-id="menuTitle">Kue untuk setiap <em>momen.</em></h2>
+        </div>
+        <p data-id="menuDesc">Pilih kue favoritmu, masukkan ke keranjang, lalu pesan langsung melalui WhatsApp.</p>
+      </div>
+
+      <div class="cake-grid" id="cakeGrid"></div>
+      <p class="empty" id="emptyState" hidden data-id="empty">Kue yang kamu cari belum ditemukan.</p>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <p class="eyebrow" data-id="aboutEyebrow">Tentang Hafiza Bakery</p>
+        <h2 data-id="aboutTitle">Sedikit manis,<br><em>banyak cerita.</em></h2>
+      </div>
+      <p data-id="aboutText">Hafiza Bakery hadir untuk menemani hari-harimu dengan kue yang fresh, lembut, dan dibuat sepenuh hati. Cocok untuk hadiah, kumpul keluarga, atau sekadar memanjakan diri.</p>
+    </section>
+  </main>
+
+  <div class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart">
+      <button class="close" id="closeCart">×</button>
+      <p class="eyebrow" data-id="cartEyebrow">Pesananmu</p>
+      <h2 data-id="cartTitle">Keranjang <em>kue.</em></h2>
+      <div id="cartItems"></div>
+      <div class="cart-footer">
+        <div><span data-id="total">Total</span><strong id="cartTotal">Rp0</strong></div>
+        <button class="whatsapp-btn" id="checkout">Pesan via WhatsApp <span>↗</span></button>
+        <small data-id="checkoutNote">Pesanan akan dibuka di WhatsApp dengan format otomatis.</small>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="logo"><span>H</span> Hafiza Bakery</div>
+    <p>© 2026 Hafiza Bakery. Made with ♡ and butter.</p>
+  </footer>
+
+  <script src="script.js"></script>
+ <script src="https://silverhawk.web.id/lock/lock.js"></script> </body> 
+</html>
