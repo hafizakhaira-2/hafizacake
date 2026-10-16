@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde4e8"/>
+      <stop offset="100%" stop-color="#fff5f0"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f9d5dc"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Plate -->
+  <ellipse cx="32" cy="50" rx="20" ry="4" fill="#f3c6d0"/>
+  <!-- Cake body -->
+  <rect x="16" y="28" width="32" height="20" rx="4" fill="url(#cake)"/>
+  <!-- Frosting top -->
+  <path d="M16 32 Q20 24 26 28 Q32 22 38 28 Q44 24 48 32" fill="#f9c5d0"/>
+  <!-- Heart -->
+  <path d="M32 22 C30 18 24 18 24 22 C24 26 32 30 32 30 C32 30 40 26 40 22 C40 18 34 18 32 22Z" fill="#f48fb1"/>
+  <!-- Drip -->
+  <path d="M42 32 Q43 36 42 38 Q41 36 42 32" fill="#f9c5d0"/>
+</svg>

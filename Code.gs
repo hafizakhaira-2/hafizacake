@@ -227,9 +227,14 @@ function deleteCake(body) {
 
 /* ---------- Helpers ---------- */
 function getSheet(name) {
-  const ss = SpreadsheetApp.openById(getSpreadsheetId());
+  const id = getSpreadsheetId();
+  // Spreadsheet ID biasanya panjang ~44 karakter dan tidak diawali AKfycb
+  if (id.startsWith("AKfycb") || id.length < 20) {
+    throw new Error("SPREADSHEET_ID salah! Kamu masukkan ID deployment Apps Script. Yang benar adalah ID dari URL spreadsheet (docs.google.com/spreadsheets/d/INI_ID_NYA/edit).");
+  }
+  const ss = SpreadsheetApp.openById(id);
   const sheet = ss.getSheetByName(name);
-  if (!sheet) throw new Error("Sheet '" + name + "' tidak ditemukan");
+  if (!sheet) throw new Error("Sheet '" + name + "' tidak ditemukan. Pastikan nama persis: Cakes");
   return sheet;
 }
 
