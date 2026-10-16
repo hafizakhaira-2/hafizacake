@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
-<head> <link rel="stylesheet" href="https://silverhawk.web.id/lock/lock.css">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hafiza Bakery — Manis, Hangat, Istimewa</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body> <body data-shlock-mode="ultimate" data-shlock-domain="" data-shlock-brand="hafizacake" data-shlock-social="https://www.dailymotion.com/video/xatk8ky,https://www.instagram.com/hfzaa_ra/,https://www.tiktok.com/@tiiin_tiiinn_mobi">
+<body>
   <header class="navbar">
     <a class="logo" href="#home"><span>H</span> Hafiza Bakery</a>
     <nav>
       <a href="#home" data-id="navHome">Beranda</a>
       <a href="#cakes" data-id="navCakes">Kue</a>
       <a href="#about" data-id="navAbout">Tentang</a>
+      <a href="panduan.html">Panduan</a>
+      <button class="nav-admin" id="adminBtn">🔐 Admin</button>
     </nav>
     <div class="nav-actions">
       <div class="search-wrap">
@@ -88,11 +91,137 @@
     </aside>
   </div>
 
+  <!-- ========== ADMIN PANEL ========== -->
+  <div id="adminPanel" class="admin-panel" hidden>
+    <div class="admin-overlay"></div>
+    <div class="admin-modal">
+      <div id="adminLoginView">
+        <h2>🔐 Admin Login</h2>
+        <p class="form-desc">Kelola menu kue Hafiza Bakery.</p>
+        <div class="form-group">
+          <input type="password" id="adminPassword" placeholder="Password admin">
+        </div>
+        <button class="submit-btn" id="adminLoginBtn">Masuk</button>
+        <p class="form-status" id="adminLoginStatus"></p>
+        <button class="text-btn" id="adminCloseLogin">← Kembali</button>
+      </div>
+
+      <div id="adminDashView" hidden>
+        <div class="admin-header">
+          <h2>🛠️ Kelola Menu</h2>
+          <button class="text-btn" id="adminLogout">Logout</button>
+        </div>
+
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-tab="list">📋 Daftar Kue</button>
+          <button class="admin-tab" data-tab="add">➕ Tambah Kue</button>
+        </div>
+
+        <div class="admin-tab-content" id="tab-list">
+          <div class="admin-toolbar">
+            <input type="text" id="filterCakes" placeholder="Cari nama kue...">
+            <button class="small-btn" id="refreshCakes">🔄 Refresh</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="cakesTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Foto</th>
+                  <th>Nama</th>
+                  <th>Harga</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="admin-tab-content" id="tab-add" hidden>
+          <form id="addCakeForm" class="admin-form">
+            <div class="form-group">
+              <label>Nama Kue</label>
+              <input type="text" id="addName" required>
+            </div>
+            <div class="form-group">
+              <label>Harga (angka saja)</label>
+              <input type="number" id="addPrice" required min="1000">
+            </div>
+            <div class="form-group">
+              <label>URL Foto (Unsplash / hotlink)</label>
+              <input type="url" id="addImg" placeholder="https://images.unsplash.com/...">
+            </div>
+            <div class="form-group">
+              <label>Deskripsi</label>
+              <textarea id="addDesc" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Kategori</label>
+              <select id="addCategory">
+                <option value="cake">Cake</option>
+                <option value="pastry">Pastry</option>
+                <option value="cupcake">Cupcake</option>
+                <option value="tart">Tart</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select id="addStatus">
+                <option value="Active">Active (tampil di website)</option>
+                <option value="Hidden">Hidden</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">Simpan Kue</button>
+            <p class="form-status" id="addStatusMsg"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit modal -->
+  <div id="editModal" class="edit-modal" hidden>
+    <div class="edit-box">
+      <h3>Edit Kue</h3>
+      <input type="hidden" id="editRow">
+      <div class="form-group">
+        <label>Nama</label>
+        <input type="text" id="editName">
+      </div>
+      <div class="form-group">
+        <label>Harga</label>
+        <input type="number" id="editPrice">
+      </div>
+      <div class="form-group">
+        <label>URL Foto</label>
+        <input type="url" id="editImg">
+      </div>
+      <div class="form-group">
+        <label>Deskripsi</label>
+        <textarea id="editDesc" rows="2"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <select id="editStatus">
+          <option value="Active">Active</option>
+          <option value="Hidden">Hidden</option>
+        </select>
+      </div>
+      <div class="edit-actions">
+        <button class="submit-btn" id="saveEditBtn">Simpan</button>
+        <button class="text-btn" id="cancelEditBtn">Batal</button>
+      </div>
+      <p class="form-status" id="editStatusMsg"></p>
+    </div>
+  </div>
+
   <footer>
     <div class="logo"><span>H</span> Hafiza Bakery</div>
     <p>© 2026 Hafiza Bakery. Made with ♡ and butter.</p>
   </footer>
 
   <script src="script.js"></script>
- <script src="https://silverhawk.web.id/lock/lock.js"></script> </body> 
+</body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan – Hafiza Bakery</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .guide { max-width: 720px; margin: 40px auto; padding: 0 20px 60px; }
+    .guide h1 { font-family: "Playfair Display", serif; }
+    .guide h2 { margin-top: 28px; color: #7c5cff; }
+    .guide-card { background: #faf8f6; border: 1px solid #e5e0dc; border-radius: 14px; padding: 16px 18px; margin: 12px 0; }
+    .guide code { background: #f0ebe8; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html"><span>H</span> Hafiza Bakery</a>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="panduan.html">Panduan</a>
+    </nav>
+  </header>
+
+  <div class="guide">
+    <h1>📖 Panduan Hafiza Bakery</h1>
+    <p>Website ini menampilkan menu kue yang disimpan di Google Sheets. Pengunjung bisa melihat menu, menambah ke keranjang, dan memesan via WhatsApp.</p>
+
+    <h2>Untuk Pengunjung</h2>
+    <div class="guide-card">
+      <h3>🎂 Lihat & Pesan Kue</h3>
+      <p>Pilih kue di menu, klik tombol <strong>+</strong> untuk masukkan ke keranjang. Setelah selesai, buka keranjang lalu klik <strong>Pesan via WhatsApp</strong>. Pesanan akan terbuka di WhatsApp dengan format otomatis.</p>
+    </div>
+    <div class="guide-card">
+      <h3>🔍 Cari Kue</h3>
+      <p>Gunakan kotak pencarian di header untuk mencari nama atau deskripsi kue.</p>
+    </div>
+
+    <h2>Fitur Database</h2>
+    <ul>
+      <li><strong>Menu Kue</strong> — daftar kue yang status-nya <code>Active</code> tampil di website.</li>
+      <li><strong>Admin Panel</strong> — kelola menu (tambah, edit, hapus) tanpa membuka Google Sheets.</li>
+      <li><strong>Keamanan</strong> — password & ID spreadsheet disimpan di Script Properties (tidak ada di kode frontend).</li>
+    </ul>
+
+    <h2>Untuk Admin</h2>
+    <div class="guide-card">
+      <h3>🔐 Masuk Panel Admin</h3>
+      <p>Klik tombol <strong>🔐 Admin</strong> di header → masukkan password <code>Bismillaah</code>.</p>
+    </div>
+    <div class="guide-card">
+      <h3>📋 Kelola Menu (CRUD)</h3>
+      <ul>
+        <li><strong>Lihat</strong> semua kue (termasuk Hidden)</li>
+        <li><strong>Edit</strong> nama, harga, foto, deskripsi, status</li>
+        <li><strong>Hapus</strong> kue</li>
+        <li><strong>Tambah</strong> kue baru lewat tab ➕</li>
+      </ul>
+      <p>Status <code>Active</code> = tampil di website. Status <code>Hidden</code> = disembunyikan.</p>
+    </div>
+
+    <h2>Setup Teknis</h2>
+    <ol>
+      <li>Buat Google Spreadsheet dengan sheet <code>Cakes</code>.</li>
+      <li>Paste <code>Code.gs</code> ke Apps Script.</li>
+      <li>Set Script Properties: <code>SPREADSHEET_ID</code> dan <code>ADMIN_PASSWORD</code> = <code>Bismillaah</code>.</li>
+      <li>Deploy sebagai Web App (Anyone) → copy URL <code>/exec</code>.</li>
+      <li>Paste URL ke <code>script.js</code> → <code>const API_URL</code>.</li>
+      <li>Jalankan <code>seedInitialData()</code> sekali untuk isi data awal.</li>
+      <li>Upload frontend ke GitHub Pages.</li>
+    </ol>
+
+    <p style="margin-top:40px; opacity:.6; font-size:13px;">Hafiza Bakery © 2026</p>
+  </div>
+</body>
+</html>
