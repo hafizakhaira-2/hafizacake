@@ -6,7 +6,7 @@
  * 2. Paste URL /exec di bawah
  */
 
-const API_URL = "PASTE_APPS_SCRIPT_WEB_APP_URL_DISINI";
+const API_URL = "https://script.google.com/macros/s/AKfycby4JclmewJCt4Tca322WfO8tSgENzk8lOZt9F7931-rIH47O-h5r5n__hZEWGJNauTO/exec";
 
 /* Fallback data (kalau API belum siap) */
 const FALLBACK_CAKES = [
